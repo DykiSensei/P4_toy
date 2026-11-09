@@ -1,0 +1,20 @@
+UI 地图示例来源
+
+地点：北京市景山公园及紧邻街道。仅为界面设计中的地图示例，不表示设备实际位置或定位成功。
+坐标：WGS84，经纬度顺序 [longitude, latitude]。
+范围：[116.3870, 39.9219, 116.3940, 39.9280]，约 600 × 680 米。
+获取日期：2026-11-09。
+获取接口：https://api.openstreetmap.org/api/0.6/map?bbox=116.3870,39.9219,116.3940,39.9280
+源数据：OpenStreetMap。
+版权署名：© OpenStreetMap contributors
+版权与许可说明：https://www.openstreetmap.org/copyright
+数据许可：Open Data Commons Open Database License (ODbL) 1.0，https://opendatacommons.org/licenses/odbl/1-0/
+
+处理：从官方 XML 数据抽取 highway 道路/步道、park/garden/wood 面、景山山峰点；裁剪到上述范围；经纬度保留 7 位小数。未虚构底图几何。GeoJSON 共 124 个要素，约 38 KB。
+绘制：绿地面先绘制；道路按 highway 分类显示，footway/path/steps 用细线，机动车道路用稍宽线；最后绘制景山标签。使用 d3-geo 投影。外环按 d3 小多边形要求保留为顺时针，避免小公园被识别为球面补集；若交给要求 RFC7946 外环逆时针的软件，可在渲染适配层反转环方向。
+界面中的当前位置、发现点、轨迹、距离和时长应单独标注为演示数据，不包含在该底图文件内。
+地图中应保留可读的 © OpenStreetMap 署名，并在设计说明或地图包信息中保留上述完整版权链接。
+
+生成脚本：../../tools/build_ui_map.py
+在项目根目录运行：python tools/build_ui_map.py
+原始下载：map-source.osm

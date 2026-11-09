@@ -1,0 +1,24 @@
+/build/
+/sdkconfig.old
+/backups/
+/tools/esptool-4.12.0/
+/build*.log
+/tmp/
+__pycache__/
+*.py[cod]
+/.venv/
+/venv/
+
+# Original vendor archive; referenced datasheets are tracked separately.
+/83497.zip
+
+# Local credentials and assistant state.
+/.env
+/.env.*
+!/.env.example
+/.codex/
+/.agents/
+
+# Operating system metadata.
+.DS_Store
+Thumbs.db
